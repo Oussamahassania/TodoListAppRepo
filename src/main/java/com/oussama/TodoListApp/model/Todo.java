@@ -22,6 +22,7 @@ public class Todo {
     private Boolean completed;
     private Boolean favorite;
 
+
     @ManyToOne
     @JoinColumn(name = "categoryId")
     @JsonIgnore

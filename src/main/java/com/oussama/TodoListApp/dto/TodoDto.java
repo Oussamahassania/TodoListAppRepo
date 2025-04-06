@@ -21,6 +21,9 @@ public class TodoDto {
     private Boolean completed;
     private Boolean favorite;
     private CategoryDto category;
+    private Integer categoryId;
+
+
 
     public static Todo toEntity(TodoDto todoDto) {
         final Todo todo = new Todo();
@@ -44,4 +47,6 @@ public class TodoDto {
                 .createdAt(todo.getCreatedAt())
                 .build();
     }
+
+
 }

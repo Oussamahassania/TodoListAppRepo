@@ -21,6 +21,8 @@ public class UserDto {
     @JsonIgnore
     private String password;
 
+    private String role; // Add this line for role mapping
+
     @JsonIgnore
     private List<CategoryDto> categories;
 
@@ -30,6 +32,7 @@ public class UserDto {
         user.setUsername(userDto.getUsername());
         user.setEmail(userDto.getEmail());
         user.setPassword(userDto.getPassword());
+        user.setRole(userDto.getRole()); // Map role from DTO to entity
         user.setCategories(
                 userDto.getCategories() != null ? userDto.getCategories().stream().map(CategoryDto::toEntity)
                         .collect(Collectors.toList()) : null
@@ -43,6 +46,7 @@ public class UserDto {
                 .username(user.getUsername())
                 .email(user.getEmail())
                 .password(user.getPassword())
+                .role(user.getRole()) // Map role from entity to DTO
                 .categories(user.getCategories() != null ? user.getCategories().stream().map(CategoryDto::fromEntity)
                         .collect(Collectors.toList()) : null)
                 .build();

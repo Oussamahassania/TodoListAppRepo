@@ -15,12 +15,14 @@ public class User implements Serializable {
     @Id
     @GeneratedValue
     private long id;
-
+    @Column(unique = true, nullable = false)
     private String username;
-
+    @Column(unique = true, nullable = false)
     private String email;
     @JsonIgnore
+    @Column(nullable = false)
     private String password;
+    private String role;
     @OneToMany(mappedBy = "user")
     private List<Category> categories;
 }
